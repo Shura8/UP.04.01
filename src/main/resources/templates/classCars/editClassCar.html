@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editCar" th:each="classCars : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${classCars.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="nameClass">Название</label>
+    <input type="text" th:value="${classCars.getNameClass()}" name="nameClass" id="nameClass" >
+    <label for="dayCost">Дневная стоимость</label>
+    <input type="text" th:value="${classCars.getDayCost()}" name="dayCost" id="dayCost" >
+
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

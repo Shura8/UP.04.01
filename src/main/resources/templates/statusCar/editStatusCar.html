@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editStatusCar" th:each="status : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${status.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="name">Название</label>
+    <input type="text" th:value="${status.getName()}" name="name" id="name" >
+
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

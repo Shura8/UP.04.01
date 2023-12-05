@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editRoles" th:each="role : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${role.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="name">Название</label>
+    <input type="text" th:value="${role.getName()}" name="name" id="name" >
+
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

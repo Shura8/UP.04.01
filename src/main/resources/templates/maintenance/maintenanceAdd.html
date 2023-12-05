@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/success6" th:object="${maintenance}">
+    <label for="date">Дата</label>
+    <input type="date" id="date" th:field="*{date}">
+    <label for="serviceCost">Стоимость</label>
+    <input type="text" id="serviceCost" th:field="*{serviceCost}">
+    <label for="car">Машина</label>
+    <select id="car">
+        <div th:each="element : ${cars}">
+            <option th:text="${element.getBrand()}"></option>
+        </div>
+    </select>
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editUser" th:each="user : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${user.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="fio">ФИО</label>
+    <input type="text" th:value="${user.getFio()}" name="fio" id="fio" >
+    <label for="age">Возраст</label>
+    <input type="text" th:value="${user.getAge()}" name="age" id="age" >
+    <label for="username">Логин</label>
+    <input type="text" th:value="${user.getUsername()}" name="username" id="username" >
+    <label for="password">Пароль</label>
+    <input type="text" readonly="readonly" th:value="${user.getPassword()}" name="password" id="password" >
+    <label for="classCar">Класс</label>
+    <select  id="classCar">
+        <div th:each="element : ${roles}">
+            <option th:text="${element.getName()}"></option>
+        </div>
+    </select>
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

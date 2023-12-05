@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editRentals" th:each="rental : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${rental.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="costRental">Стоимость</label>
+    <input type="text" th:value="${rental.getCostRental()}" name="costRental" id="costRental" >
+    <label for="dateRental">Дата</label>
+    <input type="text" th:value="${rental.getDateRental()}" name="dateRental" id="dateRental" >
+    <label for="car">Машина</label>
+    <select  id="car">
+        <div th:each="element : ${cars}">
+            <option th:text="${element.getBrand()}"></option>
+        </div>
+    </select>
+    <label for="user">Пользователь</label>
+    <select id="user">
+        <div th:each="element : ${users}">
+            <option th:text="${element.getFio()}"></option>
+        </div>
+    </select>
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editFines" th:each="fine : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${fine.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="nameFine">Название</label>
+    <input type="text" th:value="${fine.getNameFine()}" name="nameFine" id="nameFine" >
+    <label for="costFine">Стоимость</label>
+    <input type="text" th:value="${fine.getCostFine()}" name="costFine" id="costFine" >
+
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

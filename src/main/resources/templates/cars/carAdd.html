@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/success1" th:object="${cars}">
+    <label for="stateNumber">Номер автомобиля</label>
+    <input type="text" id="stateNumber" th:field="*{stateNumber}">
+    <label for="brand">Марка</label>
+    <input type="text" id="brand" th:field="*{brand}">
+    <label for="color">Цвет</label>
+    <input type="text" id="color" th:field="*{color}">
+    <label for="classCar">Класс</label>
+    <select id="classCar">
+        <div th:each="element : ${classCars}">
+            <option th:text="${element.getNameClass()}"></option>
+        </div>
+    </select>
+    <label for="statusCar">Статус</label>
+    <select id="statusCar">
+        <div th:each="element : ${status}">
+            <option th:text="${element.getName()}"></option>
+        </div>
+    </select>
+    <label for="issueYear">Год выпуска</label>
+    <input type="text" id="issueYear" th:field="*{issueYear}">
+    <label for="deposit">Депозит</label>
+    <input type="text" id="deposit" th:field="*{deposit}">
+    <label for="passport">Паспорт</label>
+    <input type="text" id="passport" th:field="*{passport}">
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>

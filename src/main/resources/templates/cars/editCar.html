@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editCar" th:each="cars : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${cars.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="stateNumber">Номер автомобиля</label>
+    <input type="text" th:value="${cars.getStateNumber()}" name="stateNumber" id="stateNumber" >
+    <label for="brand">Марка</label>
+    <input type="text" th:value="${cars.getBrand()}" name="brand" id="brand" >
+    <label for="color">Цвет</label>
+    <input type="text" th:value="${cars.getColor()}" name="color" id="color" >
+    <label for="classCar">Класс</label>
+    <select  id="classCar">
+        <div th:each="element : ${classCar}">
+            <option th:text="${element.getNameClass()}"></option>
+        </div>
+    </select>
+    <label for="statusCar">Статус</label>
+    <select id="statusCar">
+        <div th:each="element : ${status}">
+            <option th:text="${element.getName()}"></option>
+        </div>
+    </select>
+    <label for="issueYear">Год выпуска</label>
+    <input type="text" th:value="${cars.getIssueYear()}" name="issueYear" id="issueYear" >
+    <label for="deposit">Депозит</label>
+    <input type="text" th:value="${cars.getDeposit()}" name="deposit" id="deposit" >
+    <label for="passport">Паспорт</label>
+    <input type="text" th:value="${cars.getPassport()}" name="passport" id="passport" >
+
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

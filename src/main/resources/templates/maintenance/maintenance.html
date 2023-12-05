@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="/cars">Машины</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/classCars">Классы машин</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/statusCar">Статус машин</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/fines">Штрафы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/maintenance">Тех обслуживание</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/rentals">Поездки</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/roles">Роли</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/users">Пользователи</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div th:each="main: ${maintenance}">
+    <p th:text="'Дата: ' + ${main.getDate()} + ' Стоимость: ' + ${main.getServiceCost()}"></p>
+    <form action="/editMaintenance" method="get">
+        <input type="hidden" name="id" th:value="${main.getId()}" />
+        <button type="submit">Изменить</button>
+    </form>
+    <form action="/deleteMaintenance" method="post">
+        <input type="hidden" name="id" th:value="${main.getId()}" />
+        <button type="submit">Удалить</button>
+    </form>
+</div>
+<form method="get" action="/maintenanceAdd">
+    <input type="submit" value="Добавить">
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

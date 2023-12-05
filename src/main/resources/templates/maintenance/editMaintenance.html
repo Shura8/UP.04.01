@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/editMaintenance" th:each="main : ${edit}">
+    <label for="id">ID</label>
+    <input type="text" th:value="${main.getId()}" readonly="readonly" name="id" id="id" >
+    <label for="date">Дата</label>
+    <input type="text" th:value="${main.getDate()}" name="date" id="date" >
+    <label for="serviceCost">Стоимость</label>
+    <input type="text" th:value="${main.getServiceCost()}" name="serviceCost" id="serviceCost" >
+    <label for="car">Машина</label>
+    <select  id="car">
+        <div th:each="element : ${cars}">
+            <option th:text="${element.getBrand()}"></option>
+        </div>
+    </select>
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

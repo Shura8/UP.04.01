@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/success2" th:object="${classCars}">
+    <label for="nameClass">Название</label>
+    <input type="text" id="nameClass" th:field="*{nameClass}">
+    <label for="dayCost">Дневная стоимость</label>
+    <input type="text" id="dayCost" th:field="*{dayCost}">
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>

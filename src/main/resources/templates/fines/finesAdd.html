@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" action="/success3" th:object="${fines}">
+    <label for="nameFine">Название</label>
+    <input type="text" id="nameFine" th:field="*{nameFine}">
+    <label for="costFine">Стоимость</label>
+    <input type="text" id="costFine" th:field="*{costFine}">
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>
